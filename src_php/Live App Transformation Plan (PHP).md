@@ -87,7 +87,7 @@
  47. [x] Docker Configuration
     - Dockerfile
     - docker-compose.yml
- 48. [] Container Orchestration
+ 48. [x] Container Orchestration
     - Kubernetes deployment configuration
     - Horizontal pod autoscaling
     - Service discovery

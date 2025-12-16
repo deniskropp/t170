@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multipersona-app
+  namespace: default
+  labels:
+    app: multipersona
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: multipersona
+  template:
+    metadata:
+      labels:
+        app: multipersona
+    spec:
+      containers:
+      - name: app
+        image: multipersona-php:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: multipersona-config
+        - secretRef:
+            name: multipersona-secrets
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /system
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /system
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
