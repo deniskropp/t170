@@ -20,6 +20,8 @@ This project implements a live, operational Meta-AI Orchestrator based on the "L
     -   Structured Logging.
     -   Global Error Handling.
     -   API Rate Limiting.
+-   **AI Integration**:
+    -   **Mistral AI**: Real LLM-powered natural language processing.
 
 ## Installation
 
@@ -82,7 +84,20 @@ npm test
 
 -   [API Documentation](docs/api.md)
 -   [Live App Transformation Plan](docs/Live App Transformation Plan.md)
--   **Mistral AI Integration**: The system now uses real Mistral AI API calls for:
-    - Natural language to KickLang translation
-    - Dynamic role generation based on task requirements
-    - Prompt optimization based on performance feedback
+-   [Live App Transformation Plan (PHP)](docs/Live App Transformation Plan (PHP).md)
+-   [Raw Task Action Statements (TAS) Extracted from Playbook](docs/Raw Task Action Statements (TAS) Extracted from Playbook.md)
+
+## Mistral AI Integration
+
+The system now uses real Mistral AI API calls for:
+- Natural language to KickLang translation
+- Dynamic role generation based on task requirements
+- Prompt optimization based on performance feedback
+
+### Mistral AI API Key
+
+To get your API key from [Mistral Console](https://console.mistral.ai/), follow these steps:
+1. Sign up for a Mistral account
+2. Navigate to the API Keys section
+3. Copy your API key
+4. Add it to the `.env` file
