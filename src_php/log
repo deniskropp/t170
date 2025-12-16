@@ -1,0 +1,55 @@
+=== MultiPersona PHP System Demo ===
+
+Initializing database at: /home/einrichten/t170/src_php/src/../data
+Creating core components...
+Registering agents...
+Registered WePlan agent: agent-weplan-001
+
+Creating test tasks...
+Created task: Generate Strategic Plan (ID: task-6941b334ee117)
+Created task: Resource Optimization (ID: task-6941b334eeafb)
+
+Processing tasks...
+Found 1 ready tasks
+
+Processing task: Generate Strategic Plan
+✓ Task dispatched to agent: WePlan
+✓ Task executed successfully
+  Duration: 0 seconds
+  Generated 5 plan steps
+  Task status: Completed
+
+Checking for unblocked tasks...
+Now have 0 ready tasks
+
+=== System Status ===
+Task counts:
+  Pending: 6
+  Ready: 8
+  InProgress: 0
+  Completed: 2
+  Failed: 0
+  Blocked: 0
+
+Agent status:
+  Total: 1
+  Busy: 0
+  Idle: 1
+
+=== Demo Complete ===
+
+=== Sample Plan Generated ===
+Plan ID: ⫻plan/strategic:task-6941b334ee117/001
+Objective: Complete task: Generate Strategic Plan
+Timeline: 2025-12-16 to 2025-12-21
+Steps:
+  1. Step 1: Prepare deployment
+     - Conduct thorough analysis of current state and requirements for generate strategic plan
+     - Duration: 34 minutes
+  2. Step 2: Validate integration
+     - Coordinate with stakeholders for approval and feedback for generate strategic plan
+     - Duration: 126 minutes
+  3. Step 3: Test monitoring
+     - Review implementation against requirements and best practices for generate strategic plan
+     - Duration: 273 minutes
+  ... and 2 more steps

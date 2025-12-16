@@ -4,6 +4,7 @@ namespace MultiPersona\Core;
 
 use MultiPersona\Common\TaskRecord;
 use MultiPersona\Common\AgentRole;
+use MultiPersona\Common\AgentProfile;
 use MultiPersona\Common\Message;
 use MultiPersona\Infrastructure\DatabaseServiceInterface;
 use MultiPersona\Infrastructure\EventifyQueue;

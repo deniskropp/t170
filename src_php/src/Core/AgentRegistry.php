@@ -125,7 +125,15 @@ class AgentRegistry
         if (isset($taskRequirements['role'])) {
             $role = AgentRole::from($taskRequirements['role']);
             $agents = $this->getAgentsByRole($role);
-            $candidates = array_intersect($candidates, $agents);
+            // Custom intersection for AgentProfile objects
+            $candidates = array_filter($candidates, function ($agent) use ($agents) {
+                foreach ($agents as $roleAgent) {
+                    if ($agent->id === $roleAgent->id) {
+                        return true;
+                    }
+                }
+                return false;
+            });
         }
 
         // Filter for available agents
