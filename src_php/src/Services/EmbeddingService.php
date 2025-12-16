@@ -6,7 +6,7 @@ class EmbeddingService
 {
     private $llmClient;
 
-    public function __construct(MistralClient $llmClient)
+    public function __construct(LLMInterface $llmClient)
     {
         $this->llmClient = $llmClient;
     }

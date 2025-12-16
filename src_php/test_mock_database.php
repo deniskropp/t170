@@ -1,8 +1,10 @@
 <?php
 
-// Mock database service for testing when SQLite is not available
-
 namespace MultiPersona\Infrastructure;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Mock database service for testing when SQLite is not available
 
 use MultiPersona\Common\TaskRecord;
 use MultiPersona\Common\AgentProfile;
