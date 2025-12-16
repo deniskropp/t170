@@ -247,6 +247,54 @@ $task = $taskManager->createTask([
 $dispatcher->dispatchTask($task);
 ```
 
+## Recent Fixes and Improvements
+
+### Critical Bug Fixes
+
+#### 1. Array Intersection Bug in AgentRegistry
+**Issue:** The original implementation used `array_intersect()` to find the intersection between arrays of `AgentProfile` objects. However, `array_intersect()` only works with scalar values and cannot compare objects.
+
+**Solution:** Implemented custom object comparison logic using `array_filter()` to compare agent IDs:
+
+```php
+// Custom intersection for AgentProfile objects
+$candidates = array_filter($candidates, function ($agent) use ($agents) {
+    foreach ($agents as $roleAgent) {
+        if ($agent->id === $roleAgent->id) {
+            return true;
+        }
+    }
+    return false;
+});
+```
+
+**Impact:** This fix resolved the "Object could not be converted to string" error that was causing script termination and incomplete log files.
+
+#### 2. Missing Import in Dispatcher
+**Issue:** The `Dispatcher` class was missing the import for `AgentProfile`, causing a type mismatch error when the `findAgentForTask()` method tried to return an `AgentProfile` object.
+
+**Solution:** Added the missing import statement:
+
+```php
+use MultiPersona\Common\AgentProfile;
+```
+
+**Impact:** This fix resolved the "Return value must be of type ?MultiPersona\Core\AgentProfile, MultiPersona\Common\AgentProfile returned" error.
+
+### Technical Notes
+
+#### Working with Object Arrays in PHP
+When working with arrays of objects in PHP, standard array functions like `array_intersect()`, `array_diff()`, etc. cannot be used directly because they rely on value comparison. For object arrays, use:
+
+1. **Custom filtering with array_filter()** - For finding intersections
+2. **Object property comparison** - Compare specific properties like IDs
+3. **Type-safe imports** - Always ensure proper namespace imports for type hints
+
+#### Debugging Tips
+1. **Check log files** - The system generates detailed logs that can help identify where execution stops
+2. **Run tests** - Use the provided test suites to verify component functionality
+3. **Exception handling** - Ensure all methods have proper exception handling to prevent silent failures
+
 ## Conclusion
 
 The PHP implementation successfully covers the core requirements from steps 021-024 of the Live App Transformation Plan (PHP). The architecture follows the same principles as the TypeScript version but adapts them to PHP's strengths and patterns.
@@ -259,5 +307,6 @@ The PHP implementation successfully covers the core requirements from steps 021-
 - ✅ Proper OOP design with inheritance and polymorphism
 - ✅ Type safety with PHP 8+ features
 - ✅ Ready for LLM, Prompt, and Qdrant integration
+- ✅ Robust error handling and debugging support
 
 The implementation provides a solid foundation for the remaining steps in the transformation plan and is ready for production use once the final components are implemented.

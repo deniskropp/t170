@@ -49,6 +49,30 @@ This implementation covers the key requirements from steps 021-027 of the PHP tr
 - ✅ Prompt Loading (Step 026)
 - ✅ Qdrant Context Integration (Step 027)
 
+### Recent Fixes
+
+**Fixed Array Intersection Bug in AgentRegistry**: Resolved an issue where `array_intersect()` was incorrectly used with `AgentProfile` objects. Implemented custom object comparison logic.
+
+**Fixed Missing Import in Dispatcher**: Added missing `AgentProfile` import to resolve type mismatch errors.
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+**Issue: Script fails with "Object could not be converted to string" error**
+- **Cause**: Using `array_intersect()` with object arrays
+- **Solution**: Use custom filtering logic to compare object properties (e.g., agent IDs)
+- **Fixed in**: `AgentRegistry.php` line 128
+
+**Issue: Type mismatch in Dispatcher::findAgentForTask()**
+- **Cause**: Missing import for `AgentProfile` class
+- **Solution**: Add `use MultiPersona\Common\AgentProfile;` import
+- **Fixed in**: `Dispatcher.php` imports section
+
+**Issue: Incomplete log files**
+- **Cause**: Script termination due to unhandled exceptions
+- **Solution**: Check for and fix any runtime errors, ensure proper exception handling
+
 ## Usage
 
 ```php
