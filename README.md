@@ -1,103 +1,195 @@
-# T170 - Live App Transformation: Meta-AI Orchestrator
+⫻kicklang:header
+# T170 - Live App Transformation (Meta-AI Playbook)
 
-This project implements a live, operational Meta-AI Orchestrator based on the "Live App Transformation Plan". It features a robust agentic system with task management, parallel execution, context management (RAG), and self-evolution capabilities.
+The provided codebase implements a sophisticated multi-agent system with Mistral AI integration for natural language processing and dynamic role generation. Here's a refined analysis of the Mistral AI-related components:
 
-## Features
+⫻name/type:place
+deniskropp/t170
 
--   **Core Modules**: Task Manager, Agent Registry, Dispatcher, Message Bus.
--   **Advanced Capabilities**:
-    -   **Persistent Storage**: SQLite database for tasks and agents.
-    -   **Parallel Execution**: Concurrent task dispatching.
-    -   **Context Management**: Vector-based document search (RAG).
-    -   **Meta-Learning**: Feedback analysis and prompt optimization.
-    -   **Dynamic Role Adaptation**: On-the-fly agent role creation using Mistral AI.
-    -   **Mistral AI Integration**: Real LLM-powered natural language processing.
--   **Interfaces**:
-    -   **REPL**: Interactive Command-Line Shell.
-    -   **TUI**: Terminal User Interface Dashboard.
-    -   **Web**: React-based Web Dashboard.
--   **Production Readiness**:
-    -   Structured Logging.
-    -   Global Error Handling.
-    -   API Rate Limiting.
--   **AI Integration**:
-    -   **Mistral AI**: Real LLM-powered natural language processing.
+⫻context/klmx:Kick/Lang
+A multi-agent system with dynamic role generation, ethical review, and task management.
 
-## Installation
+⫻content/description
+T170 is a Meta-AI Playbook implementation featuring:
+- Multi-agent architecture with defined roles
+- Dynamic role generation for specialized tasks
+- Ethical review system (Dima)
+- Task management with dependencies
+- REPL and TUI interfaces
+- REST API server
+- Monitoring and anomaly detection
 
-1.  **Prerequisites**: Node.js (v16+), npm.
-2.  **Install Dependencies**:
-    ```bash
-    npm install
-    cd web && npm install && cd ..
-    ```
-3.  **Mistral AI Configuration**:
-    - Copy `.env.example` to `.env`
-    - Add your Mistral API key: `MISTRAL_API_KEY=your_api_key_here`
-    - Get your API key from [Mistral Console](https://console.mistral.ai/)
+⫻content/features
+- Agent Registry with 12 predefined roles
+- Task Dispatcher with ethical checks
+- Context Management with semantic search
+- Role Generator for dynamic agents
+- Monitoring with anomaly detection
+- Feedback analysis and prompt optimization
 
-## Usage
+⫻content/architecture
+```
+┌───────────────────────────────────────────────────┐
+│                   T170 System                      │
+├───────────────────┬───────────────────┬───────────┤
+│   Core Services   │   Interfaces      │  Agents   │
+├───────────────────┼───────────────────┼───────────┤
+│ - Task Manager    │ - REPL Shell      │ - 12 Roles│
+│ - Agent Registry  │ - TUI Dashboard   │ - Dynamic │
+│ - Dispatcher      │ - REST API        │   Roles   │
+│ - Context Manager │                   │           │
+│ - Monitoring      │                   │           │
+└───────────────────┴───────────────────┴───────────┘
+```
 
-### 1. Run the Verification Script (End-to-End Demo)
+⫻content/quickstart
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Set environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your Mistral API key
+```
+
+3. Run the system:
 ```bash
 npm start
 ```
-This script initializes the system, runs a series of verification steps (including parallel dispatch, context search, meta-learning, and dynamic roles), and outputs the results.
 
-### 2. Run the Interactive Shell (REPL)
-```bash
-npx ts-node src/repl_entry.ts
-```
-Commands:
--   `help`: Show available commands.
--   `status`: Show system status.
--   `tasks`: List all tasks.
--   `agents`: List all agents.
--   `create <task description>`: Create a new task.
--   `search <query>`: Search context documents.
+⫻content/api-endpoints
+- GET /api/health - Health check
+- GET /api/tasks - List tasks
+- POST /api/tasks - Create task
+- GET /api/agents - List agents
 
-### 3. Run the CLI Dashboard (TUI)
-```bash
-npx ts-node src/tui_entry.ts
-```
-Displays real-time tables for Tasks and Agents, and a scrolling log view.
+⫻content/agent-roles
+- Orchestrator: System management
+- WePlan: Task planning
+- Dima: Ethical review
+- FizzLaMetta: User interface
+- KickLaMetta: Formal language
+- AR-00L: Visual content
+- QllickBuzzFizz: CLI operations
 
-### 4. Run the Web Interface
-Start the API Server and Web Client:
-```bash
-# Terminal 1: API Server
-npx ts-node src/server/api.ts
+⫻content/license
+ISC
 
-# Terminal 2: Web Client
-npm run start:web
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+⫻content/contributing
+Contributions welcome via pull requests.
 
-## Testing
+⫻content/acknowledgments
+- Meta-AI Playbook framework
+- Mistral AI for LLM services
+- Better-SQLite3 for database
 
-Run the comprehensive test suite (Unit & Integration):
-```bash
-npm test
-```
+⫻content/version
+1.0.0
 
-## Documentation
+⫻content/status
+Active development
 
--   [API Documentation](docs/api.md)
--   [Live App Transformation Plan](docs/Live App Transformation Plan.md)
--   [Live App Transformation Plan (PHP)](docs/Live App Transformation Plan (PHP).md)
--   [Raw Task Action Statements (TAS) Extracted from Playbook](docs/Raw Task Action Statements (TAS) Extracted from Playbook.md)
+⫻content/contact
+deniskropp (GitHub)
 
-## Mistral AI Integration
+⫻content/links
+- Repository: https://github.com/deniskropp/t170
+- Issues: https://github.com/deniskropp/t170/issues
 
-The system now uses real Mistral AI API calls for:
-- Natural language to KickLang translation
-- Dynamic role generation based on task requirements
-- Prompt optimization based on performance feedback
+⫻content/notes
+Requires Mistral API key for full functionality.
 
-### Mistral AI API Key
 
-To get your API key from [Mistral Console](https://console.mistral.ai/), follow these steps:
-1. Sign up for a Mistral account
-2. Navigate to the API Keys section
-3. Copy your API key
-4. Add it to the `.env` file
+
+
+⫻kicklang:header
+# Mistral AI Integration Analysis
+
+⫻context/klmx:Kick/Lang
+The system leverages Mistral AI for two primary functions:
+1. Natural language to KickLang translation
+2. Dynamic agent role generation
+
+⫻content/key-components
+
+1. **Mistral Client (src/services/mistral_client.ts)**
+- Wrapper for Mistral API
+- Implements chat completion interface
+- Handles authentication and request formatting
+- Provides text generation with configurable parameters
+
+2. **Translator Engine (src/services/translator.ts)**
+- Converts natural language to structured KickLang
+- Uses Mistral AI with specific system prompts
+- Validates output against schemas
+- Returns confidence scores
+
+3. **Role Generator (src/core/role_generator.ts)**
+- Creates dynamic agent definitions
+- Analyzes task requirements
+- Generates complete role specifications
+- Includes fallback mechanisms
+
+⫻content/implementation-details
+
+**Translation Process:**
+1. Receives natural language input
+2. Constructs detailed system prompt with KickLang schema
+3. Calls Mistral API with temperature=0.3 for deterministic output
+4. Parses and validates JSON response
+5. Returns structured TranslationResult
+
+**Role Generation Process:**
+1. Analyzes task description
+2. Uses Mistral with system prompt defining required fields
+3. Generates complete AgentDefinition
+4. Includes fallback to default "DynamicSpecialist" role
+5. Marks generated roles as ephemeral
+
+⫻content/configuration
+- API key from environment (MISTRAL_API_KEY)
+- Base URL configurable (default: api.mistral.ai/v1)
+- Model selection (mistral-tiny in examples)
+- Temperature parameters per use case
+
+⫻content/error-handling
+- Comprehensive try-catch blocks
+- Fallback mechanisms for both services
+- Detailed error logging
+- Graceful degradation when API fails
+
+⫻content/integration-points
+1. **Task Creation** (src/index.ts)
+   - Translates natural language task descriptions
+   - Validates before task creation
+
+2. **Dynamic Dispatch** (src/core/dispatcher.ts)
+   - Generates roles for unassigned high-priority tasks
+   - Creates ephemeral agents when needed
+
+3. **Prompt Optimization** (src/core/meta_learning.ts)
+   - Uses Mistral for analyzing feedback
+   - Generates improved system prompts
+
+⫻content/performance-considerations
+- Temperature settings optimized per use case
+- Response parsing with validation
+- Fallback mechanisms prevent system failure
+- Asynchronous operations throughout
+
+⫻content/security
+- API key management via environment variables
+- No hardcoded credentials
+- Rate limiting on API endpoints
+- Input validation for all Mistral calls
+
+⫻content/future-enhancements
+1. Model selection based on task complexity
+2. Caching frequent translations
+3. Fine-tuning for domain-specific KickLang
+4. Performance metrics for Mistral calls
+5. Cost monitoring and optimization
+
+The implementation demonstrates robust integration of Mistral AI services while maintaining system reliability through comprehensive error handling and fallback mechanisms. The dual use for both translation and dynamic role generation showcases the flexibility of the LLM integration.
