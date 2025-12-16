@@ -1,0 +1,281 @@
+⫻plan/blueprint:live-app-php/full
+
+# Shared Principles
+⫻principles/shared:001
+- space_format: "⫻{name}/{type}:{place}/{index}"
+- ethical_adherence: [Beneficence, Non-maleficence, Autonomy, Justice, Explicability]
+- role_fidelity: true
+- conciseness: true
+
+# Agent Definitions
+⫻agents/definitions:001
+- Orchestrator:
+    system_prompt: "Central executive of MultiPersona system. Manage operational cycles, ensure state unification, enforce turn-taking, maintain coherence."
+    responsibilities: [Task Management, Dispatch, State Tracking, Escalation, Monitoring]
+    constraints: [Enforce Space Format, Prioritize stability & ethics, Verify task completion before state update]
+
+- RoleDefiner:
+    system_prompt: "Define and articulate functions, duties, and boundaries for all participants."
+    responsibilities: [Create clear role definitions, Prevent overlap, Ensure alignment with playbook]
+    constraints: [Structured output (Markdown/JSON), Clear Purpose & Responsibilities]
+
+- PromptEngineer:
+    system_prompt: "Iteratively optimize instructions and context for AI agents."
+    responsibilities: [Refine prompts, Integrate formatting & ethics, Tune for models/contexts]
+    constraints: [Clarity & formatting, Avoid ambiguity]
+
+- ProtocolEstablisher:
+    system_prompt: "Define rules, formats, channels for interactions."
+    responsibilities: [Maintain Space Format, Define message structures, Ensure consistent data exchange]
+    constraints: [Machine-readable, Prioritize structure & parsability]
+
+- SystemMonitor:
+    system_prompt: "Assess system stability, integrity, performance."
+    responsibilities: [Monitor cycles, Verify protocols & ethics, Flag anomalies]
+    constraints: [Report via ⫻alert/warning or ⫻alert/error, Proactive identification]
+
+- MetaCommunicator:
+    system_prompt: "Facilitate meta-level discussion about process and structure."
+    responsibilities: [Explain decisions, Summarize progress, Enable stakeholder transparency]
+    constraints: [Use ⫻content/meta-summary, Accessible explanations]
+
+- Fizz_La_Metta:
+    system_prompt: "Interface for external communication and high-level system representation."
+    responsibilities: [Translate inputs → tasks, Represent system status, Ensure polished outputs]
+    constraints: [Professional & engaging, Strict formatting]
+
+- Kick_La_Metta:
+    system_prompt: "Master of formal language and knowledge structures."
+    responsibilities: [Translate NL → KickLang, Maintain schemas, Validate structured data]
+    constraints: [Precision & validity, Syntactically correct]
+
+- Dima:
+    system_prompt: "Ethical facilitator and user advocate."
+    responsibilities: [Review plans for ethics, Identify bias/harm, Facilitate joint decision-making]
+    constraints: [Prioritize Beneficence & Non-maleficence, Constructive feedback]
+
+- AR-00L:
+    system_prompt: "Visual content creator."
+    responsibilities: [Design storyboards, diagrams, visual assets, Translate concepts visually]
+    constraints: [Clear descriptions, Align with narrative & tone]
+
+- QllickBuzz & QllickFizz:
+    system_prompt: "Operational rule definers and CLI specialists."
+    responsibilities: [Define operational rules, Generate CLI commands/scripts]
+    constraints: [Syntactically correct & safe, Clear usage instructions]
+
+- WePlan:
+    system_prompt: "Strategic planner and task manager."
+    responsibilities: [Generate implementation plans, Break objectives into TAS, Optimize resources/timelines]
+    constraints: [Logical, feasible, dependency-aware, Structured output]
+
+- Codein:
+    system_prompt: "Expert software engineer and code implementer."
+    responsibilities: [Write code, Implement features, Debug, Refactor]
+    constraints: [Clean code, Best practices, PHP/JS expertise]
+
+# Plan Steps
+⫻plan/steps:full
+
+- ⫻step/000-1:
+    name: Generate Visual DAG (Dependency Graph)
+    agents: [WePlan, AR-00L]
+    description: "Create a visual representation of the project's dependency graph."
+    output_format: "⫻artifact/dag:visual/{index}"
+    dependencies: []
+
+- ⫻step/000-2:
+    name: Initialize Project Structure
+    agents: [Codein, Orchestrator]
+    description: "Set up the initial file and directory structure for the project."
+    output_format: "⫻artifact/structure:project/{index}"
+    dependencies: []
+
+- ⫻step/001:
+    name: Extract Core Operational Processes (TAS)
+    agents: [GPTASe, AI_Tutor]
+    description: "Identify, extract explicit 'Processes' and 'Operational Cycle Management' steps from playbook.md."
+    output_format: "⫻task/TAS:playbook/{index}"
+    dependencies: []
+
+- ⫻step/002:
+    name: Purify and Consolidate Extracted TAS
+    agents: [puTASe, GPTASe]
+    description: "Review initial TAS, remove redundancy, consolidate into atomic steps."
+    output_format: "⫻task/TAS:purified/{index}"
+    dependencies: [001]
+
+- ⫻step/003:
+    name: Extract Agent Roles & System Prompts
+    agents: [GPTASe, AI_Tutor]
+    description: "Compile (Role Name, Role Purpose, System Prompt) tuples."
+    output_format: "⫻task/roles:extracted/{index}"
+    dependencies: []
+
+- ⫻step/004:
+    name: Extract Communication Protocols & Formatting Rules
+    agents: [GPTASe, ProtocolEstablisher]
+    description: "Formalize Space Format and message structures."
+    output_format: "⫻task/protocols:formalized/{index}"
+    dependencies: []
+
+- ⫻step/005:
+    name: Extract Ethical Guidelines & Principles
+    agents: [GPTASe, Dima]
+    description: "Extract Beneficence, Non-maleficence, and implementation practices."
+    output_format: "⫻task/ethics:extracted/{index}"
+    dependencies: []
+
+- ⫻step/006:
+    name: Refine System Prompts for All Agents
+    agents: [Lyra, PromptEngineer, RoleDefiner]
+    description: "Optimize prompts based on consolidated directions."
+    output_format: "⫻task/prompts:refined/{index}"
+    dependencies: [003]
+
+- ⫻step/007:
+    name: Define KickLang Schema for Playbook Concepts
+    agents: [Kick_La_Metta, Codein, ProtocolEstablisher]
+    description: "Formalize TAS, roles, protocols, and ethics into KickLang grammar."
+    output_format: "⫻task/schema:kicklang/{index}"
+    dependencies: [002,003,004,005]
+
+- ⫻step/008:
+    name: Design High-Level Operational Workflows
+    agents: [Lyra, WePlan, Orchestrator]
+    description: "Structure purified TAS into workflows: Task Execution, Plan Generation, Issue Resolution."
+    output_format: "⫻task/workflow:highlevel/{index}"
+    dependencies: [002,007]
+
+- ⫻step/009:
+    name: Map Playbook Concepts to Live App Architecture
+    agents: [Codein, AI_Tutor, Orchestrator]
+    description: "Translate playbook concepts into concrete system architecture (microservices, queues, databases, APIs)."
+    output_format: "⫻task/architecture:map/{index}"
+    dependencies: [007,008]
+
+- ⫻step/010:
+    name: Formalize Inter-Agent Communication Rules
+    agents: [ProtocolEstablisher, Kick_La_Metta, Lyra]
+    description: "Define message structures, interaction patterns, KickLang validation."
+    output_format: "⫻task/communication:formal/{index}"
+    dependencies: [004,007]
+
+- ⫻step/011:
+    name: Develop Task Management & State Tracking Module Plan
+    agents: [WePlan, Orchestrator, SystemMonitor]
+    description: "Plan task identification, prioritization, state tracking, dependency enforcement."
+    output_format: "⫻task/module:task-state/{index}"
+    dependencies: [002,008,009]
+
+- ⫻step/012:
+    name: Plan Agent Dispatch & Turn-Taking Mechanism
+    agents: [Orchestrator, WePlan, Lyra]
+    description: "Design task assignment, execution turns, and result routing between agents."
+    output_format: "⫻task/module:dispatch/{index}"
+    dependencies: [006,008,009,010]
+
+- ⫻step/013:
+    name: Define Monitoring & Alerting System Plan
+    agents: [SystemMonitor, WePlan, Orchestrator]
+    description: "Plan monitoring metrics, anomaly detection, escalation procedures."
+    output_format: "⫻task/module:monitoring/{index}"
+    dependencies: [005,009]
+
+- ⫻step/014:
+    name: Plan Ethical Review & Oversight Integration
+    agents: [Dima, WePlan, Orchestrator]
+    description: "Integrate Dima's ethical checkpoints into live workflows."
+    output_format: "⫻task/module:ethics-integration/{index}"
+    dependencies: [005,008,012]
+
+- ⫻step/015:
+    name: Plan Natural Language to KickLang Translation Service
+    agents: [Kick_La_Metta, Codein, WePlan]
+    description: "Plan service for translating user inputs to formal KickLang structures."
+    output_format: "⫻task/service:NL-KickLang/{index}"
+    dependencies: [007,009]
+
+- ⫻step/016:
+    name: Implement Core Agent Prompts & Role Definitions
+    agents: [PromptEngineer, RoleDefiner, Codein]
+    description: "Deploy refined prompts and formal role definitions into live system."
+    output_format: "⫻task/implementation:prompts-roles/{index}"
+    dependencies: [006,007,009]
+
+- ⫻step/017:
+    name: Implement Basic Task Management & Dispatcher
+    agents: [Codein, Orchestrator, SystemMonitor]
+    description: "Develop foundational task queues, state management, and agent dispatch logic."
+    output_format: "⫻task/implementation:task-dispatch/{index}"
+    dependencies: [011,012,016]
+
+- ⫻step/018:
+    name: Implement Inter-Agent Communication Layer
+    agents: [Codein, ProtocolEstablisher, Kick_La_Metta]
+    description: "Develop message layer enforcing formalized protocols, Space Format, and KickLang validation."
+    output_format: "⫻task/implementation:communication/{index}"
+    dependencies: [010,017]
+
+- ⫻step/019:
+    name: Conduct Initial System Coherence & Resilience Check
+    agents: [SystemMonitor, Orchestrator, Fizz_La_Metta]
+    description: "Verify role alignment, protocol adherence, and operational cycle smoothness."
+    output_format: "⫻task/validation:coherence-resilience/{index}"
+    dependencies: [017,018]
+
+- ⫻step/020:
+    name: Plan for Iterative Refinement & Feature Expansion
+    agents: [Fizz_La_Metta, WePlan, Orchestrator, Dima]
+    description: "Generate roadmap for refinements, new features, and ethical oversight."
+    output_format: "⫻task/plan:iteration-expansion/{index}"
+    dependencies: [019]
+
+- ⫻step/021:
+    name: Implement SQLite Integration (PHP)
+    agents: [Codein]
+    description: "Implement SQLite database integration for persistent storage in PHP."
+    output_format: "⫻code/php:sqlite-integration/{index}"
+    dependencies: [020]
+
+- ⫻step/022:
+    name: Implement Eventify Message Queue (PHP)
+    agents: [Codein]
+    description: "Implement the Eventify message queue system in PHP for asynchronous task handling."
+    output_format: "⫻code/php:eventify-queue/{index}"
+    dependencies: [021]
+
+- ⫻step/023:
+    name: Implement Task Management Interface (PHP)
+    agents: [Codein]
+    description: "Develop the PHP interface for task management, interacting with SQLite and Eventify."
+    output_format: "⫻code/php:task-interface/{index}"
+    dependencies: [021,022]
+
+- ⫻step/024:
+    name: Implement Agent Base Class (PHP)
+    agents: [Codein]
+    description: "Create the base abstract class for Agents in PHP, defining common properties and methods."
+    output_format: "⫻code/php:agent-base/{index}"
+    dependencies: [023]
+
+- ⫻step/025:
+    name: Implement LLM Integration (PHP)
+    agents: [Codein]
+    description: "Implement the integration with Large Language Models (LLM) in PHP."
+    output_format: "⫻code/php:llm-integration/{index}"
+    dependencies: [024]
+
+- ⫻step/026:
+    name: Implement Prompt Loading (PHP)
+    agents: [Codein, PromptEngineer]
+    description: "Implement the mechanism to load and manage system prompts in PHP."
+    output_format: "⫻code/php:prompt-loading/{index}"
+    dependencies: [024]
+
+- ⫻step/027:
+    name: Integrate Qdrant Context (PHP)
+    agents: [Codein]
+    description: "Integrate Qdrant vector database for context management in PHP."
+    output_format: "⫻code/php:qdrant-integration/{index}"
+    dependencies: [025]
