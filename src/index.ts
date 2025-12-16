@@ -204,6 +204,11 @@ async function main() {
         metadata: {}
     });
 
+    // Update dispatcher to use the new RoleGenerator with Mistral support
+    const { RoleGenerator } = require('./core/role_generator');
+    const roleGenerator = new RoleGenerator();
+    dispatcher.setRoleGenerator(roleGenerator);
+
     console.log('Dispatching Dynamic Task...');
     const dynamicResult = await dispatcher.dispatch(dynamicTask);
 

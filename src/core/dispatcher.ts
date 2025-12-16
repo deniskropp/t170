@@ -103,4 +103,9 @@ export class Dispatcher {
     public async dispatch(task: TaskRecord): Promise<DispatchResult> {
         return (await this.dispatchBatch())[0] || { success: false, reason: 'Batch dispatch failed or no tasks ready' };
     }
+    
+    // Allow external setting of role generator (for testing or custom implementations)
+    public setRoleGenerator(roleGenerator: RoleGenerator): void {
+        this.roleGenerator = roleGenerator;
+    }
 }
