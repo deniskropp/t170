@@ -1,0 +1,36 @@
+{
+    "name": "t170",
+    "version": "1.0.0",
+    "description": "T170 - Live App Transformation (Meta-AI Playbook)",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "ts-node src/index.ts",
+        "build": "tsc",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "@types/node": "^20.0.0",
+        "@types/supertest": "^6.0.3",
+        "jest": "^30.2.0",
+        "supertest": "^7.1.4",
+        "ts-jest": "^29.4.6",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@types/better-sqlite3": "^7.6.13",
+        "@types/blessed": "^0.1.27",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "better-sqlite3": "^12.5.0",
+        "blessed": "^0.1.81",
+        "blessed-contrib": "^4.11.0",
+        "cors": "^2.8.5",
+        "express": "^5.2.1",
+        "express-rate-limit": "^8.2.1"
+    }
+}
