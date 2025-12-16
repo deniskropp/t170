@@ -15,6 +15,7 @@ use MultiPersona\Infrastructure\DatabaseService;
 use MultiPersona\Infrastructure\EventifyQueue;
 use MultiPersona\Services\MistralClient;
 use MultiPersona\Services\EthicalReviewer;
+use MultiPersona\Services\MockLLMClient;
 use MultiPersona\Services\TranslatorEngine;
 use MultiPersona\Services\MetricCollector;
 use MultiPersona\Services\AnomalyDetector;
@@ -30,7 +31,7 @@ echo "Starting Phase 9 Verification...\n";
 // Mock dependencies
 $db = new DatabaseService(sys_get_temp_dir() . '/test_db_phase9_' . uniqid());
 $queue = new EventifyQueue();
-$llmClient = new MistralClient('dummy_key');
+$llmClient = new MockLLMClient();
 $taskManager = new TaskManager($db, $queue);
 $agentRegistry = new AgentRegistry($db, $queue);
 $dispatcher = new Dispatcher($taskManager, $agentRegistry, $queue, $db);

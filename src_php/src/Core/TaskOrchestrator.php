@@ -2,6 +2,8 @@
 
 namespace MultiPersona\Core;
 
+use MultiPersona\Core\Dispatcher;
+use MultiPersona\Core\TaskManager;
 use MultiPersona\Common\TaskRecord;
 
 class TaskOrchestrator
@@ -19,6 +21,6 @@ class TaskOrchestrator
     {
         // Logic to decompose task, assign agents, and track progress
         // For now, simple dispatch
-        $this->dispatcher->dispatch($task);
+        $this->dispatcher->dispatchTask($task);
     }
 }

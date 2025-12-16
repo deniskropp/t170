@@ -7,13 +7,13 @@ class NtfyService
     private string $baseUrl;
     private string $defaultTopic;
 
-    public function __construct(string $baseUrl = 'https://ntfy.sh', string $defaultTopic = 'my_app_alerts')
+    public function __construct(string $baseUrl = 'https://ntfy.violass.club', string $defaultTopic = 'my_app_alerts')
     {
         $this->baseUrl = rtrim($baseUrl, '/');
         $this->defaultTopic = $defaultTopic;
     }
 
-    public function send(string $message, string $topic = null, string $priority = 'default'): bool
+    public function send(string $message, ?string $topic = null, string $priority = 'default'): bool
     {
         $topic = $topic ?? $this->defaultTopic;
         $url = "{$this->baseUrl}/{$topic}";

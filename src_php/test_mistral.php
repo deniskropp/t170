@@ -2,8 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use MultiPersona\Services\LLMInterface;
-use MultiPersona\Services\MockLLMClient;
+use MultiPersona\Services\MistralClient;
 use Dotenv\Dotenv;
 
 // Load .env if it exists
@@ -18,14 +17,14 @@ if (!$apiKey) {
     echo "⚠️  MISTRAL_API_KEY not found in environment.\n";
     echo "Please set it to run live tests.\n";
     // We can still test instantiation
-    $client = new MockLLMClient();
+    $client = new MistralClient('dummy_key');
     echo "✅ MistralClient instantiated successfully.\n";
     exit(0);
 }
 
 echo "🔑 Found API Key, attempting connection...\n";
 
-$client = new MockLLMClient();
+$client = new MistralClient($apiKey);
 
 // Test 1: Simple Generation
 echo "\nTest 1: Simple Generation\n";

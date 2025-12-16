@@ -7,18 +7,18 @@ use MultiPersona\Common\TaskRecord;
 use MultiPersona\Common\AgentProfile;
 use MultiPersona\Infrastructure\DatabaseServiceInterface;
 use MultiPersona\Infrastructure\EventifyQueue;
-use MultiPersona\Services\MistralClient;
+use MultiPersona\Services\LLMInterface;
 
 class CodeinAgent extends AgentBase
 {
-    private MistralClient $llmClient;
+    private LLMInterface $llmClient;
 
     public function __construct(
         AgentProfile $profile,
         DatabaseServiceInterface $database,
         EventifyQueue $messageBus,
         string $systemPrompt,
-        MistralClient $llmClient
+        LLMInterface $llmClient
     ) {
         parent::__construct($profile, $database, $messageBus, $systemPrompt);
         $this->llmClient = $llmClient;
