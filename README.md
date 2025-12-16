@@ -10,7 +10,8 @@ This project implements a live, operational Meta-AI Orchestrator based on the "L
     -   **Parallel Execution**: Concurrent task dispatching.
     -   **Context Management**: Vector-based document search (RAG).
     -   **Meta-Learning**: Feedback analysis and prompt optimization.
-    -   **Dynamic Role Adaptation**: On-the-fly agent role creation using LLM simulation.
+    -   **Dynamic Role Adaptation**: On-the-fly agent role creation using Mistral AI.
+    -   **Mistral AI Integration**: Real LLM-powered natural language processing.
 -   **Interfaces**:
     -   **REPL**: Interactive Command-Line Shell.
     -   **TUI**: Terminal User Interface Dashboard.
@@ -28,6 +29,10 @@ This project implements a live, operational Meta-AI Orchestrator based on the "L
     npm install
     cd web && npm install && cd ..
     ```
+3.  **Mistral AI Configuration**:
+    - Copy `.env.example` to `.env`
+    - Add your Mistral API key: `MISTRAL_API_KEY=your_api_key_here`
+    - Get your API key from [Mistral Console](https://console.mistral.ai/)
 
 ## Usage
 
@@ -77,3 +82,7 @@ npm test
 
 -   [API Documentation](docs/api.md)
 -   [Live App Transformation Plan](docs/Live App Transformation Plan.md)
+-   **Mistral AI Integration**: The system now uses real Mistral AI API calls for:
+    - Natural language to KickLang translation
+    - Dynamic role generation based on task requirements
+    - Prompt optimization based on performance feedback
