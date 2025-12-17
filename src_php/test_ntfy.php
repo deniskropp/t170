@@ -25,7 +25,7 @@ try {
 // Test 2: Send a dummy notification (assuming success for now)
 echo "Test 2: Sending dummy notification... ";
 try {
-    $topic = 'test_topic';
+    $topic = 'kick';
     $message = 'Hello from NtfyService test!';
     $priority = 'default';
 
